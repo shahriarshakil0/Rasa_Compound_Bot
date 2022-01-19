@@ -1,0 +1,14 @@
+
+
+    <div>
+        {% for s in data %}
+            <div>
+                <h4>My text = {{s.m_text}}</h4>
+                <h4>Bot text = {{s.b_text}}</h4>
+            </div>
+        {% endfor %}
+    </div>
+    <form method="POST">
+        <input name="text">
+        <input type="submit">
+    </form>

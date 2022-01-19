@@ -1,0 +1,167 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - web_rtc
+  - chat_send
+  - weather_query
+  - weather_in_city
+  - currency
+  - search_hotel
+  - search_flight
+
+
+entities:
+  - location
+
+
+slots:
+  location:
+    type: text
+  email_address:
+    type: text
+  your_country:
+    type: text
+  new_country:
+    type: text
+  amount:
+    type: float
+  name:
+    type: text
+  country_name:
+    type: text
+  city_name:
+    type: text
+  dep_city:
+    type: text
+  arr_city:
+    type: text
+  dep_date:
+    type: text
+  
+
+
+responses:
+    
+  utter_ask_name:
+  - text: "Hey! Welcome to Expert Bot. What is your name?"
+
+  utter_thanks:
+  - text: "Thanks for giving information. How can I help you?"
+    buttons:
+    - title: "Weather Forecast!"
+      payload: "/weather_query"
+    - title: "Currency Converter"
+      payload: "/currency"
+    - title: "Find Hotel"
+      payload: "/search_hotel"
+    - title: "Find Flight"
+      payload: "/search_flight"
+    - title: "Contact with real agent"
+      payload: "/web_rtc"
+
+  utter_weather_query:
+  - text: "In which city do you want to know?"
+  - text: "Which city?"
+
+  utter_ask_your_country:
+  - text: "Please provide your country name or From which country do you want to know."
+
+  utter_ask_new_country:
+  - text: "Please provide new Currency Country name."
+
+  utter_ask_amount:
+  - text: "Please provide your amount"
+
+  utter_ask_country_name:
+  - text: "In which country do you want to stay?"
+
+  utter_ask_city_name:
+  - text: "In which city ?"
+
+  utter_ask_dep_city:
+  - text: "From which city do you want to go?"
+
+  utter_ask_arr_city:
+  - text: "Which is your destination city?"
+
+  utter_ask_dep_date:
+  - text: "Which day do you want to go?(Ex:2022-05-15)"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "See you later. Thanks for visiting."
+    buttons:
+      - title: "Want Chat Summary"
+        payload: "/chat_send"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Expert."
+
+  utter_ask_email_address:
+  - text: "Please, provide your gmail address."
+
+  utter_out_of_scope:
+  - text: "Sorry, I can't handle that request."
+    buttons:
+    - title: "Contact with real agent"
+      payload: "/web_rtc"
+
+  utter_please_rephrase:
+  - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+
+actions:
+- action_web_rtc
+- action_chat_summary
+- action_weather
+- action_currency
+- action_clear
+- action_restart
+- action_hotel
+- action_flight
+
+forms:
+  email_details_form:
+    email_address:
+    - type: from_text
+  name_form:
+    name:
+    - type: from_text
+  location_form:
+    location:
+    - type: from_entity
+      entity: location
+  currency_form:
+    your_country:
+    - type: from_text
+    new_country:
+    - type: from_text
+    amount:
+    - type: from_text
+  hotel_form:
+    country_name:
+    - type: from_text
+    city_name:
+    - type: from_text
+  flight_form:
+    dep_city:
+    - type: from_text
+    arr_city:
+    - type: from_text
+    dep_date:
+    - type: from_text
+    
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

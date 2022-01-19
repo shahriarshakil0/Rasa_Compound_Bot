@@ -1,0 +1,194 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: weather_query
+  examples: |
+    - whats the weather
+    - weather
+    - temparature
+    - what is the weather?
+    - What's the weather today?
+    - Tell me the weather
+
+- intent: weather_in_city
+  examples: |
+    - what's the weather in [Berlin](location) at the moment?
+    - what's the weather in [London](location) today?
+    - show me what's the weather in [Paris](location)
+    - i wonder what is the weather in [Vilnius](location) right now?
+    - is the weather nice in [Dhaka](location) today?
+    - i am going to [London](location) today and I wonder what is the weather out there?
+    - i am planning my trip to [India](location). What is the weather out there?
+    - show me the weather in [Dublin](location), please
+    - in [London](location)
+    - [Dhaka](location)
+    - oh, sorry, in [Italy](location)
+    - tell me the weather in [India](location)
+    - the weather condition in [Italy](location)
+    - hows weather in [India](location)
+    - weather in [Dhaka](location)
+    - [mumbai](location)
+    - Temperature at [Paris](location)
+    - [USA](location)
+    - [Paris](location)
+    - [Paris](location) Temerature
+    - [paris](location)
+    - whats weather in [USA](location)
+    - hows [Paris](location)
+    - hows [Berlin](location) today
+    - weather in [USA](location)
+    - in [Mumbai](location)
+    - hows weather in [Berlin](location)
+    - hows weather in [Dublin](location)
+    - hows weather in [Mumbai](location)
+    - hows weather in [mumbai](location)
+    - Hows [USA](location) doing today
+    - in [USA](location)
+    - hows [USA](location) doing today?
+    - [USA](location)?
+    - hows [Paris](location) today?
+    - may I know weather today
+    - temperature in [Goa](location)
+    - hows weather in [Goa](location)
+    - temperature in [USA](location)
+    - hows weather in [England](location)
+    - whats the weather in [England](location)
+    - whats the weather in [Chennai](location)
+    - in [Paris](location)
+    - in [Chennai](location)
+    - hows [Mumbai](location)
+    - weather in [London](location)
+
+- intent: currency
+  examples: |
+    -I want to convert currency
+    -currency convert
+    -currency
+    -convert
+    -Do you know current currency state
+    -Can you figure out the currency state
+    -currency state
+
+- intent: chat_send
+  examples: |
+    - Can you provide chat summary
+    - I need all conversation
+    - please send me chat summary
+    - please send all converation
+
+- intent: web_rtc
+  examples: |
+    - I want to contact with real agent
+    - I want to contact with real person
+    - would I talk to real person
+    - would I talk to real agent
+    - real person
+    - real agent
+    - can i connect with real person
+    - I don't like talk to a bot
+    - I hate chatbot
+    - Is there any option talk to real person
+    - Any option talk to real agent
+
+- intent: search_hotel
+  examples: |
+    - Is there any avaiable hotel
+    - I need a hotel 
+    - I want to book a hotel
+    - hotel book
+    - search hotel
+    - hotel search
+    - can you provide some information about hotel
+    - accomodation
+    - Please suggest me a hotel
+
+- intent: search_flight
+  examples: |
+    - Is there any avaiable flight
+    - I need a flight information 
+    - I want to book a flight
+    - flight book
+    - search flight
+    - flight search
+    - can you provide some information about flight
+    - flight
+    - Please suggest me a flight
+
+- intent: out_of_scope
+  examples: |
+    -I want to order food
+    -What is 2 + 2?
+    -Who's the US President?

@@ -1,0 +1,124 @@
+version: "2.0"
+
+rules:
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+#FORM email
+- rule: Activate form
+  steps:
+  - intent: chat_send
+  - action: email_details_form
+  - active_loop: email_details_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: email_details_form
+  steps:
+  # Form is deactivated
+  - action: email_details_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_chat_summary
+  - action: action_restart
+  
+
+#currency
+- rule: Activate form
+  steps:
+  - intent: currency
+  - action: currency_form
+  - active_loop: currency_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: currency_form
+  steps:
+  # Form is deactivated
+  - action: currency_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_currency
+  - action: action_clear
+
+#name
+- rule: Activate form
+  steps:
+  - intent: greet
+  - action: name_form
+  - active_loop: name_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: name_form
+  steps:
+  # Form is deactivated
+  - action: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_thanks
+
+  #Hotel
+- rule: Activate form
+  steps:
+  - intent: search_hotel
+  - action: hotel_form
+  - active_loop: hotel_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: hotel_form
+  steps:
+  # Form is deactivated
+  - action: hotel_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_hotel
+  - action: action_clear
+
+    #Flight
+- rule: Activate form
+  steps:
+  - intent: search_flight
+  - action: flight_form
+  - active_loop: flight_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: flight_form
+  steps:
+  # Form is deactivated
+  - action: flight_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_flight
+  - action: action_clear
